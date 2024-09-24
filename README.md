@@ -4,7 +4,7 @@ test 1
 import json
 import numpy as np
 
-# Sample JSON data as a string (this would typically be read from a file)
+#### Sample JSON data as a string (this would typically be read from a file)
 json_data = '''{
     "keys": {
         "n": 4,
@@ -28,14 +28,14 @@ json_data = '''{
     }
 }'''
 
-# Parse the JSON data
+##### Parse the JSON data
 data = json.loads(json_data)
 
-# Function to decode values from different bases
+#### Function to decode values from different bases
 def decode_value(base, value):
     return int(value, int(base))
 
-# Extracting roots
+#### Extracting roots
 roots = []
 for key in data.keys():
     if key.isdigit():  # Process only numeric keys
@@ -45,14 +45,14 @@ for key in data.keys():
         y = decode_value(base, value)  # Decode y value
         roots.append((x, y))
 
-# Roots after decoding
+#### Roots after decoding
 print("Decoded Roots:", roots)
 
-# Split into x and y values for interpolation
+#### Split into x and y values for interpolation
 x_values = [x for x, y in roots]
 y_values = [y for x, y in roots]
 
-# Function to calculate polynomial coefficients using Lagrange interpolation
+#### Function to calculate polynomial coefficients using Lagrange interpolation
 def lagrange_interpolation(x_values, y_values, x):
     total = 0
     for i in range(len(y_values)):
@@ -63,13 +63,13 @@ def lagrange_interpolation(x_values, y_values, x):
         total += product
     return total
 
-# Calculate the constant term c (f(0)) of the polynomial
+#### Calculate the constant term c (f(0)) of the polynomial
 decoded_c = lagrange_interpolation(x_values, y_values, 0)
 print("Constant term c:", decoded_c)
 
 
 
-*output*
+## Output
 Decoded Roots: [(1, 4), (2, 7), (3, 12), (6, 39)]
 Constant term c: 2.9999999999999982
 
