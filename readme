@@ -110,3 +110,8 @@ const jsonInput2 = `{
 // Calculate and print the constant term c for each test case
 console.log("Constant term c for Test Case 1:", findConstantTerm(jsonInput1));
 console.log("Constant term c for Test Case 2:", findConstantTerm(jsonInput2));
+
+## Output
+#### Constant term c for Test Case 1: 2.9999999999999982
+#### Constant term c for Test Case 2: 33198405829207.53
+
